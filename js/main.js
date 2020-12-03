@@ -24,38 +24,61 @@ Changing background image to reflect temp
     If Celsius <=32 change to snowy scene
     If Celsius > 32 && <=100 change to green trees
     If Celsius is > 100 change to desert picture
+
+Create radio buttons that determine Fahrenheit or Celsius
+    If the user clicks the Fahrenheit button it displays temp in F
+    If the user clicks the Celsius button it displays the temp in C
     
 ---*/
+
+
+
+//determine which unit the user clicked
+function selectUnit() {
+    let isChecked = document.getElementById('tempF').checked;
+    if (isChecked == true) {
+        document.getElementById("fahrenheitInput").style.opacity=1;
+        toCelsius();
+        document.getElementById("convertedTemp").innerHTML = convertToCelsius;
+    } else {
+        document.getElementById("celsiusInput").style.opacity=1;
+        toFahrenheit();
+    }
+}
 
 //function to convert Fahrenheit to Celsius
 function toCelsius() {
     let fahrenheit = document.getElementById("fahrenheitInput").value;
-    console.log(fahrenheit);
     let convertToCelsius = ((fahrenheit - 32) * 5)/9;
-    console.log(convertToCelsius);
     document.getElementById("celsiusInput").value = convertToCelsius;
+    document.getElementById("convertedTemp").innerHTML = convertToCelsius;
 }
 
 
 //function to convert Celsius to Fahrenheit
 function toFahrenheit() {
     let celsius = document.getElementById("celsiusInput").value;
-    console.log(celsius);
     let convertToFahrenheit = ((celsius * 9)/5) + 32;
-    console.log(convertToFahrenheit);
     let fahrenheitTemp = document.getElementById("fahrenheitInput").value;
     let celsiusTemp = document.getElementById("celsiusInput").value;
     document.getElementById("fahrenheitInput").value = convertToFahrenheit;
-    
-//change body background to match temperature
-if (fahrenheitTemp <= 32 || celsiusTemp <= 0) {
-    document.getElementById("bg").style.backgroundImage = "url(images/winter.jpeg)";
-} else if (fahrenheitTemp >= 33 && fahrenheitTemp <= 90 && celsiusTemp > 0 && celsiusTemp <= 32.2) {
-    document.getElementById("bg").style.backgroundImage = "url(images/misty_woods.jpg)";
-} else {
-    document.getElementById("bg").style.backgroundImage = "url(images/cacti.jpg)";
+    document.getElementById("convertedTemp").innerHTML = convertToFahrenheit;
+
+    //change body background to match temperature
+    if (fahrenheitTemp <= 32 || celsiusTemp <= 0) {
+        document.getElementById("bg").style.backgroundImage = "url(images/winter.jpeg)";
+    } else if (fahrenheitTemp >= 33 && fahrenheitTemp <= 90 && celsiusTemp > 0 && celsiusTemp <= 32.2) {
+        document.getElementById("bg").style.backgroundImage = "url(images/misty_woods.jpg)";
+    } else {
+        document.getElementById("bg").style.backgroundImage = "url(images/cacti.jpg)";
+    }
 }
+
+//display converted temperature
+/*-- function displayTemp() {
+    document.getElementById("convertedTemp").innerHTML = ;
 }
+---*/
 
 /* --For the temperature lab we’re going to create a temperature converter that:
 Uses a form that:

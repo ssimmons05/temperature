@@ -33,7 +33,7 @@ Create radio buttons that determine Fahrenheit or Celsius
 
 
 
-//determine which unit the user clicked
+//determine which unit the user clickedthan
 function selectUnit() {
     let isChecked = document.getElementById('tempF').checked;
     if (isChecked == true) {

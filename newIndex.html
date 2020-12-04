@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Temperature Converter</title>
+</head>
+<body id ="bg" class="img-fluid" alt="photo of scenic lake">
+    <div class="container-fluid">
+        <form class="row">
+            <div class="col-sm">
+                <h1>Temperature Converter</h1>
+                <!-- <radio buttons for unit selection> --> 
+                <input type="radio" value="tempF" id="tempF" name="unit"><span>Convert Fahrenheit to Celsius</span>
+                <input type="radio" value="tempC" id="tempC" name="unit"><span>Convert Celsius to Fahrenhiet</span>
+                <!-- <trigger convertTemp() function onkeyup> --> 
+                <input id="temp" type="text" onkeyup="convertTemp()">
+                <!-- <place to display converted temp result> --> 
+                <p id="convertedTemp"></p>
+            </div>
+        </form>
+    </div>
+<script src="js/newjs.js"></script>    
+</body>
+</html>

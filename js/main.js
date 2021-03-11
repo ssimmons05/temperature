@@ -49,20 +49,20 @@ function selectUnit() {
 //function to convert Fahrenheit to Celsius
 function toCelsius() {
     let fahrenheit = document.getElementById("fahrenheitInput").value;
-    let convertToCelsius = ((fahrenheit - 32) * 5)/9;
+    let convertToCelsius = Math.floor(((fahrenheit - 32) * 5)/9);
     document.getElementById("celsiusInput").value = convertToCelsius;
-    document.getElementById("convertedTemp").innerHTML = convertToCelsius;
+    document.getElementById("convertedTemp").innerHTML = convertToCelsius + " degrees " + "Celsius";
 }
 
 
 //function to convert Celsius to Fahrenheit
 function toFahrenheit() {
     let celsius = document.getElementById("celsiusInput").value;
-    let convertToFahrenheit = ((celsius * 9)/5) + 32;
+    let convertToFahrenheit = Math.floor(((celsius * 9)/5) + 32 );
     let fahrenheitTemp = document.getElementById("fahrenheitInput").value;
     let celsiusTemp = document.getElementById("celsiusInput").value;
     document.getElementById("fahrenheitInput").value = convertToFahrenheit;
-    document.getElementById("convertedTemp").innerHTML = convertToFahrenheit;
+    document.getElementById("convertedTemp").innerHTML = convertToFahrenheit + " degrees " + "Fahrenheit";
 
     //change body background to match temperature
     if (fahrenheitTemp <= 32 || celsiusTemp <= 0) {
